@@ -2,30 +2,33 @@
 pipeline {
     agent any
 
+    environment {
+        PYTHON = 'C:\\Users\\DELL\\AppData\\Local\\Programs\\Python\\Python312\\python.exe'
+    }
+
     stages {
 
         stage('Checkout') {
             steps {
-                echo 'Checking out project from GitHub'
-                checkout scm
+                echo 'Project downloaded from GitHub'
             }
         }
 
         stage('Install Dependencies') {
             steps {
-                bat 'python -m pip install -r requirements.txt'
+                bat '"%PYTHON%" -m pip install -r requirements.txt'
             }
         }
 
         stage('Run Pytest') {
             steps {
-                bat 'python -m pytest -v'
+                bat '"%PYTHON%" -m pytest -v'
             }
         }
 
         stage('Build Completed') {
             steps {
-                echo 'Subtraction API testing pipeline completed successfully!'
+                echo 'Subtraction API pipeline completed successfully!'
             }
         }
     }
@@ -34,7 +37,6 @@ pipeline {
         success {
             echo 'BUILD SUCCESSFUL'
         }
-
         failure {
             echo 'BUILD FAILED'
         }
