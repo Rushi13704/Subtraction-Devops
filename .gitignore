@@ -1,0 +1,48 @@
+
+# Virtual environment
+venv/
+env/
+.venv/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Python testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# IDE and editor files
+.vscode/
+.idea/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+
+# MLflow
+mlruns/
+mlartifacts/
+
+# Generated monitoring reports
+drift_report.html
+
+# Temporary files
+*.tmp
+*.bak
+
+# Build and distribution
+build/
+dist/
+*.egg-info/
